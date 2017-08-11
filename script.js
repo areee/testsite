@@ -1,25 +1,31 @@
-function lastModified() {
-    var modiDate = new Date(document.lastModified);
-    var showAs = modiDate.getDate() + "." + (modiDate.getMonth() + 1) + "." + modiDate.getFullYear();
-    return showAs
+/**
+ * Koodin alkuperainen lahde: https://stackoverflow.com/a/16024472
+ */
+function muokattuPaivays() {
+    var paivays = new Date(document.lastModified);
+    var esitysmuoto = paivays.getDate() + "." + (paivays.getMonth() + 1) + "." + paivays.getFullYear();
+    return esitysmuoto
 }
 
-function GetTime() {
-    var modiDate = new Date();
-    var Seconds
+function muokattuKlo() {
+    var paivays = new Date();
+    var sekunnit
+    var minuutit
 
-    if (modiDate.getSeconds() < 10) {
-        Seconds = "0" + modiDate.getSeconds();
+    if (paivays.getSeconds() < 10) {
+        sekunnit = "0" + paivays.getSeconds();
     } else {
-        Seconds = modiDate.getSeconds();
+        sekunnit = paivays.getSeconds();
     }
 
-    var modiDate = new Date();
-    var CurTime = modiDate.getHours() + ":" + modiDate.getMinutes() + ":" + Seconds
-    return CurTime
+    var paivays = new Date();
+    var aikaNyt = paivays.getHours() + ":" + paivays.getMinutes() + ":" + sekunnit;
+    return aikaNyt
 }
 
-document.write("Last updated on ")
-document.write(lastModified() + " @ " + GetTime());
-document.write(" [D M Y 24 Hour Clock]")
-document.write("");
+var txt1 = "Sivu on viimeksi ladattu ";
+var txt2 = " klo ";
+
+document.write(txt1.fontcolor("chartreuse"));
+document.write(muokattuPaivays().fontcolor("chartreuse") + txt2.fontcolor("chartreuse") + muokattuKlo().fontcolor("chartreuse"));
+document.write(".".fontcolor("chartreuse"));
