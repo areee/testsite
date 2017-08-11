@@ -1,8 +1,5 @@
-h1{
+h1,h2,p{
 color: chartreuse;
-}
-p{
-    color: chartreuse;
 }
 body{
     background: gray;
