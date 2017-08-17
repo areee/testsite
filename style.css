@@ -1,9 +1,13 @@
-h1,h2,p{
-color: chartreuse;
-}
 body{
-    margin: 1em 1em;
-    text-align: center;
+    color: chartreuse;
+    padding: 1em;
+    margin: 1em 2em;
     background: black;
     font-family: 'Fira Mono', monospace;
+}
+h1,footer{
+    text-align: center;
+}
+h2,p{
+    padding: 1em;
 }

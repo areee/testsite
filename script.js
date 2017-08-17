@@ -1,6 +1,7 @@
 /**
  * Koodin alkuperainen lahde: https://stackoverflow.com/a/16024472
  */
+
 function muokattuPaivays() {
     var paivays = new Date(document.lastModified);
     var esitysmuoto = paivays.getDate() + "." + (paivays.getMonth() + 1) + "." + paivays.getFullYear();
@@ -8,9 +9,9 @@ function muokattuPaivays() {
 }
 
 function muokattuKlo() {
-    var paivays = new Date();
-    var sekunnit
-    var minuutit
+    var paivays = new Date(document.lastModified);
+    var sekunnit;
+    var minuutit;
 
     if (paivays.getSeconds() < 10) {
         sekunnit = "0" + paivays.getSeconds();
@@ -18,14 +19,19 @@ function muokattuKlo() {
         sekunnit = paivays.getSeconds();
     }
 
-    var paivays = new Date();
-    var aikaNyt = paivays.getHours() + ":" + paivays.getMinutes() + ":" + sekunnit;
+    if (paivays.getMinutes() < 10) {
+        minuutit = "0" + paivays.getMinutes();
+    } else {
+        minuutit = paivays.getMinutes();
+    }
+
+    var aikaNyt = paivays.getHours() + ":" + minuutit + ":" + sekunnit;
     return aikaNyt
 }
 
-var txt1 = "Sivu on viimeksi ladattu ";
+var txt1 = "Sivu on viimeksi päivitetty ";
 var txt2 = " klo ";
 
 document.write(txt1.fontcolor("chartreuse"));
-document.write(muokattuPaivays().fontcolor("chartreuse") + txt2.fontcolor("chartreuse") + muokattuKlo().fontcolor("chartreuse"));
+document.write(muokattuPaivays().fontcolor("chartreuse"));
 document.write(".".fontcolor("chartreuse"));
